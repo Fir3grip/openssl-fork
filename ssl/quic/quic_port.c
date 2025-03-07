@@ -181,7 +181,7 @@ static int port_init(QUIC_PORT *port)
     ret = 1;
 err:
     EVP_CIPHER_free(cipher);
-    OPENSSL_clear_free(token_key);
+    OPENSSL_clear_free(token_key, key_len);
     if (!ret)
         port_cleanup(port);
     return ret;
